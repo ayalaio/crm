@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140415204542) do
+ActiveRecord::Schema.define(:version => 20170920054552) do
+
+  create_table "orders", :force => true do |t|
+    t.string  "page_name"
+    t.string  "page_url"
+    t.string  "variant"
+    t.string  "ip"
+    t.string  "day_week"
+    t.string  "day_period"
+    t.integer "quantity"
+    t.string  "state"
+    t.string  "customer_name"
+    t.string  "city"
+    t.string  "neighborhood"
+    t.string  "street_name"
+    t.string  "street_number"
+    t.string  "phone_number"
+    t.string  "desktopmobile"
+  end
 
   create_table "users", :force => true do |t|
     t.datetime "created_at", :null => false
