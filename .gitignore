@@ -48,3 +48,32 @@ build-iPhoneSimulator/
 
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
+
+
+node_modules/*
+package-lock.json
+bower_components/*
+/web
+/themes
+/src/css/generated/*
+build/
+
+/hybrid/platforms
+/hybrid/www/*
+
+!hybrid/plugins
+hybrid/plugins/*
+!hybrid/plugins/fetch.json
+
+.DS_Store
+Thumbs.db
+.idea/**
+
+.nyc_output/**
+.sonar/**
+coverage/**
+
+src/help/html/*
+*.iml
+src/js/rjs-cache.js
+
