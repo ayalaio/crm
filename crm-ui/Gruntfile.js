@@ -13,13 +13,27 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks("grunt-oraclejet");
+  grunt.loadNpmTasks('grunt-parallel');
+  grunt.loadNpmTasks('grunt-sass');
 
   grunt.registerTask("build", "Public task. Calls oraclejet-build to build the oraclejet application. Can be customized with additional build tasks.", function (buildType) {
     grunt.task.run([`oraclejet-build:${buildType}`]);
   });
 
-  grunt.registerTask("serve", "Public task. Calls oraclejet-serve to serve the oraclejet application. Can be customized with additional serve tasks.", function (buildType) {
-    grunt.task.run([`oraclejet-serve:${buildType}`]);
-  }); 
-};
+  grunt.registerTask("serve", "Public task. Calls oraclejet-serve to serve the oraclejet application. " +
+      "Can be customized with additional serve tasks.", function (buildType) {
+      grunt.task.run(['parallel']);
+  });
+  
+  grunt.registerTask("crm-proxy", "Public task. Calls the proxy module to serve requests", function(buildType){
+      const shell = require('shelljs');
+      shell.exec("node proxy")
+  });
 
+  grunt.registerTask("crm-serve-ui", "Public task. Calls oraclejet-serve to serve the oraclejet application. " +
+      "Can be customized with additional serve tasks.", function (buildType) {
+      grunt.cli.options.destination = "server-only"
+      grunt.task.run(['sass', `oraclejet-serve:${buildType}`]);
+  });
+  
+};

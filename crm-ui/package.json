@@ -14,9 +14,14 @@
     "connect-modrewrite": "0.10.1",
     "grunt": "^1.0.1",
     "grunt-oraclejet": "~3.0.0",
+    "grunt-parallel": "^0.5.1",
+    "grunt-sass": "^2.0.0",
     "load-grunt-config": "0.19.2",
+    "open": "0.0.5",
     "oraclejet-tooling": "~3.0.0",
-    "proxy-middleware": "0.15.0"
+    "proxy-middleware": "0.15.0",
+    "tcp-port-used": "^0.1.2",
+    "shelljs": "0.7.7"
   },
   "engines": {
     "node": ">=0.10.0"

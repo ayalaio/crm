@@ -7,9 +7,7 @@ var url = require('url');
 
 var app = connect()
   .use(modRewrite([
-    "^\/uno-server\/api\/v2.0\/(.*)    /send-to-api/uno-server/api/v2.0/$1 [L]",
-    "^(.*)\/anon_(.*).js$              /send-to-ui/js/viewModels/anon.js [L]",
-    "^(.*)\/anon_(.*).html$            /send-to-ui/js/views/anon.html [L]",
+    "^\/crm-server\/api\/v1.0\/(.*)    /send-to-api/crm-server/api/v1.0/$1 [L]",
     "^(.*)\/css\/(.*)                  /send-to-ui/css/$2 [L]",
     "^(.*)\/js\/(.*)                   /send-to-ui/js/$2 [L]",
     "^(.*)\/docs(.*)                   /send-to-ui/index.html?$2 [L]",
@@ -18,7 +16,6 @@ var app = connect()
     "^(.*)\/images\/(.*)               /send-to-ui/images/$2 [L]",
     "^(.*)?(.*)                        /send-to-ui/index.html?$2 [L]"
   ]))
-  .use('/send-to-api', proxy(url.parse('http://adc01jsm.us.oracle.com:8001/')))
   //.use('/send-to-api', proxy(url.parse('http://localhost:8080/')))
   .use('/send-to-ui',  proxy(url.parse('http://localhost:8000/')))
   .listen(9000)
